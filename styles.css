@@ -389,6 +389,15 @@ body {
   color: #b1182b;
 }
 
+.form-whatsapp-help {
+  margin-top: 0.9rem;
+  font-weight: 600;
+}
+
+.form-whatsapp-help a {
+  color: var(--blue-main);
+}
+
 .footer {
   background: var(--blue-dark);
   color: var(--white);
