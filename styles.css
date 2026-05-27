@@ -27,7 +27,7 @@ body {
   position: relative;
   isolation: isolate;
   color: var(--white);
-  padding-bottom: 4rem;
+  padding-bottom: 4.5rem;
   overflow: hidden;
   background:
     radial-gradient(circle at 10% 20%, rgba(91, 136, 255, 0.2), transparent 35%),
@@ -48,9 +48,9 @@ body {
     radial-gradient(circle, rgba(120, 160, 255, 0.24) 0 1px, transparent 1px 100%),
     linear-gradient(110deg, transparent 25%, rgba(115, 155, 255, 0.16) 26%, transparent 27%),
     linear-gradient(170deg, transparent 68%, rgba(165, 98, 255, 0.12) 69%, transparent 70%);
-  background-size: 26px 26px, 240px 240px, 280px 280px;
-  opacity: 0.36;
-  animation: driftGrid 28s linear infinite;
+  background-size: 28px 28px, 250px 250px, 320px 320px;
+  opacity: 0.4;
+  animation: driftGrid 34s linear infinite;
 }
 
 .hero::after {
@@ -61,6 +61,31 @@ body {
   opacity: 0.9;
   animation: pulseAurora 12s ease-in-out infinite alternate;
 }
+.hero-content::before,
+.hero-content::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+}
+
+.hero-content::before {
+  inset: -12% -5%;
+  background:
+    radial-gradient(circle at 18% 72%, rgba(108, 182, 255, 0.5) 0 2px, transparent 3px),
+    radial-gradient(circle at 70% 28%, rgba(161, 119, 255, 0.45) 0 2px, transparent 3px),
+    radial-gradient(circle at 87% 74%, rgba(94, 147, 255, 0.48) 0 1.8px, transparent 3px);
+  background-size: 170px 170px, 200px 200px, 150px 150px;
+  opacity: 0.38;
+}
+
+.hero-content::after {
+  inset: 8% 3% 4%;
+  background:
+    linear-gradient(110deg, transparent 12%, rgba(125, 172, 255, 0.22) 13%, transparent 14%),
+    linear-gradient(160deg, transparent 57%, rgba(187, 132, 255, 0.16) 58%, transparent 59%);
+  background-size: 280px 280px, 380px 380px;
+  opacity: 0.35;
+}
 
 .navbar {
   display: flex;
@@ -70,8 +95,9 @@ body {
 }
 
 .logo {
-  font-size: 1.4rem;
-  font-weight: 700;
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
 }
 
 .hero-brand {
@@ -80,11 +106,11 @@ body {
   line-height: 1.03;
   font-weight: 800;
   letter-spacing: 0.02em;
-  background: linear-gradient(120deg, #fff9df 8%, #fde293 30%, #d8b86a 52%, #f7ecd0 74%, #fffef4 95%);
+  background: linear-gradient(120deg, #fff8d8 6%, #f8d78f 28%, #b9c4dc 48%, #f7efdc 72%, #fefeff 94%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  text-shadow: 0 3px 14px rgba(243, 217, 157, 0.24);
+  text-shadow: 0 3px 18px rgba(241, 219, 166, 0.26), 0 0 26px rgba(162, 188, 255, 0.2);
 }
 
 .nav-cta {
@@ -101,7 +127,7 @@ body {
   padding: 4rem 0 2rem;
   display: grid;
   grid-template-columns: 1.2fr minmax(220px, 330px);
-  gap: 2rem;
+  gap: 2.4rem;
   align-items: center;
 }
 
@@ -506,7 +532,7 @@ body {
     text-align: center;
   }
 
-  .hero-mini-card {
+  .hero-mockup {
     width: min(100%, 340px);
     margin: 0 auto;
     text-align: left;
@@ -569,21 +595,25 @@ body {
 .hero-highlight { animation: heroReveal 0.7s ease 0.55s forwards; }
 .hero-actions { animation: heroReveal 0.7s ease 0.75s forwards; }
 
-.hero-mini-card {
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  background: linear-gradient(150deg, rgba(18, 34, 74, 0.76), rgba(14, 22, 44, 0.5));
-  border-radius: 18px;
-  padding: 1rem;
-  backdrop-filter: blur(8px);
-  box-shadow: 0 20px 44px rgba(6, 10, 24, 0.5), inset 0 1px 0 rgba(255,255,255,0.2);
-  animation: floatingCard 7s ease-in-out infinite;
+.hero-mockup {
+  border: 1px solid rgba(189, 211, 255, 0.45);
+  background: linear-gradient(165deg, rgba(15, 26, 62, 0.82), rgba(8, 16, 39, 0.58));
+  border-radius: 22px;
+  padding: 1.2rem;
+  backdrop-filter: blur(9px);
+  box-shadow: 0 24px 50px rgba(4, 8, 24, 0.6), inset 0 1px 0 rgba(255,255,255,0.22);
+  animation: slowFloat 7s ease-in-out infinite;
 }
-.mini-pill { margin: 0; font-size: 0.76rem; font-weight: 700; color: #c9f9d7; }
-.mini-title { margin: 0.35rem 0 0.8rem; font-size: 1.2rem; font-weight: 700; }
-.mini-route { display: grid; gap: 0.55rem; }
-.mini-point { font-size: 0.84rem; font-weight: 600; }
-.mini-line { height: 2px; background: linear-gradient(90deg, rgba(92,153,255,0.3), #8fc2ff, rgba(176,122,255,0.4)); border-radius: 999px; position: relative; }
-.mini-line::after { content: ""; position: absolute; width: 10px; height: 10px; border-radius: 50%; right: 18%; top: -4px; background: #9ec4ff; box-shadow: 0 0 10px #9ec4ff; }
+.mockup-header { display: flex; justify-content: space-between; gap: 0.6rem; align-items: center; }
+.mockup-pill { margin: 0; font-size: 0.75rem; font-weight: 700; color: #cbf9db; }
+.mockup-badge { font-size: 0.7rem; padding: 0.2rem 0.5rem; border-radius: 999px; background: rgba(157, 184, 255, 0.17); border: 1px solid rgba(212, 224, 255, 0.45); }
+.hero-mockup h3 { margin: 0.55rem 0 0.2rem; font-size: 1.35rem; }
+.mockup-subtitle { margin: 0 0 0.85rem; opacity: 0.88; font-size: 0.92rem; }
+.mockup-action { width: 100%; border: none; border-radius: 12px; padding: 0.62rem 0.8rem; font-weight: 700; color: #f5f8ff; background: linear-gradient(120deg, #2b5dff, #55a3ff); box-shadow: 0 10px 20px rgba(64, 141, 255, 0.35); }
+.mockup-mapline { margin-top: 0.95rem; display: grid; gap: 0.55rem; }
+.mockup-point { font-size: 0.82rem; font-weight: 600; }
+.mockup-route { height: 2px; background: linear-gradient(90deg, rgba(102,171,255,0.3), #92c8ff, rgba(180,139,255,0.45)); border-radius: 999px; position: relative; }
+.mockup-route::after { content: ""; position: absolute; width: 11px; height: 11px; border-radius: 50%; right: 22%; top: -4px; background: #a2caff; box-shadow: 0 0 12px #9dc5ff; animation: pulseGlow 3.8s ease-in-out infinite; }
 
 .btn-primary {
   background: linear-gradient(120deg, #1f4bdb, #356dff 45%, #5a96ff);
@@ -598,9 +628,10 @@ body {
   backdrop-filter: blur(5px);
 }
 
-.hero .btn:hover { transform: translateY(-2px); transition: all 0.25s ease; }
+.hero .btn:hover { transform: translateY(-2px); transition: all 0.25s ease; box-shadow: 0 16px 30px rgba(62, 128, 255, 0.28); }
 
 @keyframes heroReveal { to { opacity: 1; transform: translateY(0); } }
 @keyframes driftGrid { from { transform: translate3d(0,0,0);} to { transform: translate3d(40px, 30px, 0);} }
 @keyframes pulseAurora { from { transform: scale(1); opacity: 0.8; } to { transform: scale(1.08); opacity: 1; } }
-@keyframes floatingCard { 0%,100% { transform: translateY(0px);} 50% { transform: translateY(-10px);} }
+@keyframes slowFloat { 0%,100% { transform: translateY(0px);} 50% { transform: translateY(-12px);} }
+@keyframes pulseGlow { 0%,100% { opacity: 0.7; transform: scale(1);} 50% { opacity: 1; transform: scale(1.18);} }
