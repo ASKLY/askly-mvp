@@ -1,7 +1,8 @@
 // Manejo del formulario del piloto y del modal de videollamada (MVP sin backend).
 document.addEventListener("DOMContentLoaded", () => {
-  const pilotForm = document.getElementById("formulario-piloto") || document.getElementById("pilot-form");
+  const pilotForm = document.querySelector("#formulario-piloto form, form#formulario-piloto, #pilot-form");
   const pilotFormStatus = document.getElementById("pilot-form-status");
+  const pilotFormWhatsappFallback = document.getElementById("pilot-form-whatsapp-fallback");
   const videoButtons = document.querySelectorAll(".video-call-btn");
   const videoModal = document.getElementById("video-modal");
   const closeVideoModalButton = document.getElementById("close-video-modal");
@@ -25,29 +26,43 @@ document.addEventListener("DOMContentLoaded", () => {
         pilotFormStatus.textContent = "Enviando inscripción...";
         pilotFormStatus.classList.remove("success", "error");
       }
+      if (pilotFormWhatsappFallback) {
+        pilotFormWhatsappFallback.classList.add("hidden");
+      }
+
+      const formData = new FormData(pilotForm);
 
       try {
         const response = await fetch(pilotForm.action, {
-          method: pilotForm.method || "POST",
-          body: new FormData(pilotForm),
+          method: "POST",
+          body: formData,
           headers: {
-            Accept: "application/json"
+            "Accept": "application/json"
           }
         });
 
         if (response.ok) {
-          pilotForm.reset();
           if (pilotFormStatus) {
             pilotFormStatus.textContent = "Gracias. Hemos recibido tu inscripción al piloto de Askly. Te contactaremos pronto.";
             pilotFormStatus.classList.add("success");
           }
+          pilotForm.reset();
         } else {
-          throw new Error("Formspree respondió con error");
+          if (pilotFormStatus) {
+            pilotFormStatus.textContent = "No se pudo enviar la inscripción. Inténtalo nuevamente o contáctanos por WhatsApp.";
+            pilotFormStatus.classList.add("error");
+          }
+          if (pilotFormWhatsappFallback) {
+            pilotFormWhatsappFallback.classList.remove("hidden");
+          }
         }
       } catch (error) {
         if (pilotFormStatus) {
           pilotFormStatus.textContent = "No se pudo enviar la inscripción. Inténtalo nuevamente o contáctanos por WhatsApp.";
           pilotFormStatus.classList.add("error");
+        }
+        if (pilotFormWhatsappFallback) {
+          pilotFormWhatsappFallback.classList.remove("hidden");
         }
       }
     });
