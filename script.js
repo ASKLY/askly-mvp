@@ -90,11 +90,17 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   if (mapPins.length > 0) {
+    mapPins.forEach((pin) => pin.setAttribute("aria-pressed", "false"));
+
     mapPins.forEach((pin) => {
       pin.addEventListener("click", () => {
         const businessKey = pin.dataset.mapBusiness;
-        mapPins.forEach((item) => item.classList.remove("active"));
+        mapPins.forEach((item) => {
+          item.classList.remove("active");
+          item.setAttribute("aria-pressed", "false");
+        });
         pin.classList.add("active");
+        pin.setAttribute("aria-pressed", "true");
         if (businessKey) {
           updateMapPanel(businessKey);
         }
@@ -102,6 +108,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     mapPins[0].classList.add("active");
+    mapPins[0].setAttribute("aria-pressed", "true");
     updateMapPanel(mapPins[0].dataset.mapBusiness);
   }
 
