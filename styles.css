@@ -193,3 +193,42 @@ body {
     padding-top: 2.3rem;
   }
 }
+
+.modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: rgba(15, 28, 63, 0.55);
+  z-index: 1000;
+}
+
+.modal-open {
+  display: flex;
+}
+
+.modal-content {
+  width: min(560px, 100%);
+  background: var(--white);
+  border-radius: 16px;
+  padding: 1.4rem;
+  box-shadow: 0 20px 48px rgba(18, 32, 75, 0.25);
+}
+
+.modal-content h3 {
+  margin-top: 0;
+  margin-bottom: 0.8rem;
+}
+
+.modal-content p {
+  margin-top: 0;
+  margin-bottom: 1.2rem;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+}
