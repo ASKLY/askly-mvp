@@ -10,7 +10,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const mapPins = document.querySelectorAll(".map-pin");
   const mapBusinessName = document.getElementById("map-business-name");
   const mapBusinessCategory = document.getElementById("map-business-category");
-  const mapBusinessDistance = document.getElementById("map-business-distance");
+  const mapBusinessDistrict = document.getElementById("map-business-district");
+  const mapBusinessAddress = document.getElementById("map-business-address");
+  const mapBusinessHours = document.getElementById("map-business-hours");
+  const mapBusinessStatus = document.getElementById("map-business-status");
   const mapBusinessDescription = document.getElementById("map-business-description");
   const mapConnectLiveButton = document.getElementById("map-connect-live-btn");
   const mapViewCardButton = document.getElementById("map-view-card-btn");
@@ -76,42 +79,67 @@ document.addEventListener("DOMContentLoaded", () => {
     "farmacia-san-miguel": {
       name: "Farmacia San Miguel",
       category: "Farmacia",
-      distance: "1.2 km",
+      district: "San Miguel",
+      address: "Av. La Marina 1234, San Miguel",
+      hours: "Lunes a sábado, 8:00 a. m. a 9:00 p. m.",
+      status: "Disponible ahora",
       description: "Consulta si tienen el medicamento que necesitas antes de salir de casa.",
       cardHref: "#card-farmacia-san-miguel"
     },
     "ferreteria-la-esquina": {
       name: "Ferretería La Esquina",
       category: "Ferretería",
-      distance: "2.8 km",
+      district: "San Martín de Porres",
+      address: "Av. Perú 2250, San Martín de Porres",
+      hours: "Lunes a sábado, 8:30 a. m. a 7:00 p. m.",
+      status: "Disponible ahora",
       description: "Pregunta por herramientas, pintura o repuestos antes de ir al local.",
       cardHref: "#card-ferreteria-la-esquina"
     },
     "veterinaria-patitas": {
       name: "Veterinaria Patitas",
       category: "Veterinaria",
-      distance: "3.4 km",
+      district: "Jesús María",
+      address: "Av. Salaverry 980, Jesús María",
+      hours: "Lunes a domingo, 9:00 a. m. a 8:00 p. m.",
+      status: "Disponible ahora",
       description: "Confirma atención disponible para tu mascota antes de desplazarte.",
       cardHref: "#card-veterinaria-patitas"
     },
     "english-horizon-hub": {
       name: "English Horizon Hub",
       category: "Academia",
-      distance: "4.1 km",
+      district: "Miraflores",
+      address: "Av. Benavides 1450, Miraflores",
+      hours: "Lunes a sábado, 9:00 a. m. a 8:30 p. m.",
+      status: "Disponible ahora",
       description: "Consulta horarios, modalidad y disponibilidad de clases antes de inscribirte.",
       cardHref: "#card-english-horizon-hub"
+    },
+    "colegio-privado-la-molina": {
+      name: "Colegio privado en La Molina",
+      category: "Educación / Colegio bilingüe",
+      district: "La Molina",
+      address: "La Molina, Lima",
+      hours: "Lunes a viernes, 7:30 a. m. a 4:00 p. m.",
+      status: "Disponible en horario de atención",
+      description: "Institución educativa privada y bilingüe en La Molina para información general, admisiones, horarios, programas académicos, visitas guiadas y orientación inicial para familias.",
+      cardHref: "#card-colegio-privado-la-molina"
     }
   };
 
   const updateMapPanel = (businessKey) => {
-    if (!mapBusinessName || !mapBusinessCategory || !mapBusinessDistance || !mapBusinessDescription || !mapConnectLiveButton || !mapViewCardButton) return;
+    if (!mapBusinessName || !mapBusinessCategory || !mapBusinessDistrict || !mapBusinessAddress || !mapBusinessHours || !mapBusinessStatus || !mapBusinessDescription || !mapConnectLiveButton || !mapViewCardButton) return;
 
     const business = mapBusinesses[businessKey];
     if (!business) return;
 
     mapBusinessName.textContent = business.name;
     mapBusinessCategory.textContent = business.category;
-    mapBusinessDistance.textContent = business.distance;
+    mapBusinessDistrict.textContent = business.district;
+    mapBusinessAddress.textContent = business.address;
+    mapBusinessHours.textContent = business.hours;
+    mapBusinessStatus.textContent = business.status;
     mapBusinessDescription.textContent = business.description;
     mapConnectLiveButton.dataset.businessName = business.name;
     mapViewCardButton.setAttribute("href", business.cardHref);
