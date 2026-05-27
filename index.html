@@ -82,35 +82,66 @@
 
           <div class="map-demo-layout">
             <div class="map-demo" role="img" aria-label="Mapa demo de negocios cercanos">
+              <div class="map-controls" aria-hidden="true">
+                <span class="map-demo-badge">Mapa demo</span>
+                <div class="zoom-controls">
+                  <button class="zoom-btn" type="button" tabindex="-1">+</button>
+                  <button class="zoom-btn" type="button" tabindex="-1">−</button>
+                </div>
+              </div>
+              <div class="map-legend" aria-hidden="true">Disponible ahora</div>
+
+              <div class="map-zone zone-a"></div>
+              <div class="map-zone zone-b"></div>
+              <div class="map-zone zone-c"></div>
+
               <div class="map-road road-horizontal"></div>
               <div class="map-road road-vertical"></div>
               <div class="map-road road-diagonal"></div>
+              <div class="map-road road-avenue"></div>
 
               <div class="user-location" aria-label="Tu ubicación">
                 <span class="user-dot"></span>
                 <span class="user-label">Tu ubicación</span>
               </div>
 
-              <button class="map-pin" type="button" style="top: 24%; left: 28%;" data-map-business="farmacia-san-miguel">Farmacia San Miguel</button>
-              <button class="map-pin" type="button" style="top: 55%; left: 66%;" data-map-business="ferreteria-la-esquina">Ferretería La Esquina</button>
-              <button class="map-pin" type="button" style="top: 68%; left: 34%;" data-map-business="veterinaria-patitas">Veterinaria Patitas</button>
-              <button class="map-pin" type="button" style="top: 36%; left: 74%;" data-map-business="english-horizon-hub">English Horizon Hub</button>
+              <button class="map-pin pin-farmacia" type="button" style="top: 24%; left: 28%;" data-map-business="farmacia-san-miguel">
+                <span class="pin-marker" aria-hidden="true">💊</span>
+                <span class="pin-label">Farmacia San Miguel</span>
+                <span class="pin-selected-tag" aria-hidden="true">Seleccionado</span>
+              </button>
+              <button class="map-pin pin-ferreteria" type="button" style="top: 55%; left: 66%;" data-map-business="ferreteria-la-esquina">
+                <span class="pin-marker" aria-hidden="true">🔧</span>
+                <span class="pin-label">Ferretería La Esquina</span>
+                <span class="pin-selected-tag" aria-hidden="true">Seleccionado</span>
+              </button>
+              <button class="map-pin pin-veterinaria" type="button" style="top: 68%; left: 34%;" data-map-business="veterinaria-patitas">
+                <span class="pin-marker" aria-hidden="true">🐶</span>
+                <span class="pin-label">Veterinaria Patitas</span>
+                <span class="pin-selected-tag" aria-hidden="true">Seleccionado</span>
+              </button>
+              <button class="map-pin pin-academia" type="button" style="top: 36%; left: 74%;" data-map-business="english-horizon-hub">
+                <span class="pin-marker" aria-hidden="true">🎓</span>
+                <span class="pin-label">English Horizon Hub</span>
+                <span class="pin-selected-tag" aria-hidden="true">Seleccionado</span>
+              </button>
             </div>
 
             <aside class="map-info-panel card" aria-live="polite">
+              <p class="panel-kicker">Negocio seleccionado</p>
               <h3 id="map-business-name">Farmacia San Miguel</h3>
               <p><strong>Categoría:</strong> <span id="map-business-category">Farmacia</span></p>
               <p><strong>Distancia:</strong> <span id="map-business-distance">1.2 km</span></p>
               <p><strong>Estado:</strong> <span class="status">Disponible ahora</span></p>
               <p id="map-business-description">Consulta si tienen el medicamento que necesitas antes de salir de casa.</p>
               <div class="card-actions">
-                <button class="btn btn-primary" id="map-connect-live-btn" type="button">Conectar en vivo</button>
+                <button class="btn btn-primary" id="map-connect-live-btn" type="button">Conectar en vivo ahora</button>
                 <a class="btn btn-secondary" id="map-view-card-btn" href="#card-farmacia-san-miguel">Ver tarjeta</a>
               </div>
             </aside>
           </div>
 
-          <p class="map-note">Mapa demo: integración con mapa real en una futura versión.</p>
+          <p class="map-note">Este es un mapa demo. En una futura versión, Askly podrá integrarse con un mapa real para mostrar ubicación, distancia y ruta.</p>
         </div>
       </section>
 
