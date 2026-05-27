@@ -68,6 +68,13 @@ body {
   opacity: 0.9;
 }
 
+
+.hero-highlight {
+  margin-top: 1rem;
+  max-width: 760px;
+  font-weight: 600;
+}
+
 .hero-actions {
   margin-top: 1.6rem;
   display: flex;
