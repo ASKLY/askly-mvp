@@ -312,6 +312,7 @@
           </p>
           <form id="formulario-piloto" class="form-card" method="POST" action="https://formspree.io/f/xzdwyrey">
             <input type="hidden" name="_subject" value="Nueva inscripción al piloto de Askly" />
+            <input type="hidden" name="_language" value="es" />
             <label>
               Nombre del negocio
               <input type="text" name="nombre_negocio" autocomplete="organization" required />
@@ -370,6 +371,14 @@
               <button type="submit" class="btn btn-primary">Enviar inscripción</button>
             </div>
             <p id="pilot-form-status" class="form-status" aria-live="polite"></p>
+            <p id="pilot-form-whatsapp-fallback" class="form-whatsapp-fallback hidden">
+              <a
+                href="https://wa.me/51923547480?text=Hola%2C%20quiero%20inscribir%20mi%20negocio%20al%20piloto%20de%20Askly%2C%20pero%20tuve%20problemas%20con%20el%20formulario."
+                target="_blank"
+                rel="noopener noreferrer"
+                >Enviar datos por WhatsApp</a
+              >
+            </p>
           </form>
           <p class="form-whatsapp-help">
             ¿Tienes dudas?

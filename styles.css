@@ -389,6 +389,19 @@ body {
   color: #b1182b;
 }
 
+.form-whatsapp-fallback {
+  margin: 0.2rem 0 0;
+  font-weight: 600;
+}
+
+.form-whatsapp-fallback a {
+  color: var(--blue-main);
+}
+
+.hidden {
+  display: none;
+}
+
 .form-whatsapp-help {
   margin-top: 0.9rem;
   font-weight: 600;
