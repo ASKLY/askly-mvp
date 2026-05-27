@@ -349,6 +349,46 @@ body {
   padding: 0.65rem;
 }
 
+.form-fieldset {
+  border: 1px solid #d3d8e5;
+  border-radius: 12px;
+  padding: 0.8rem;
+  margin: 0;
+}
+
+.form-fieldset legend {
+  font-weight: 600;
+  padding: 0 0.3rem;
+}
+
+.radio-option {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-top: 0.55rem;
+  font-weight: 500;
+}
+
+.form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}
+
+.form-status {
+  margin: 0;
+  min-height: 1.6rem;
+  font-weight: 600;
+}
+
+.form-status.success {
+  color: #0e8a45;
+}
+
+.form-status.error {
+  color: #b1182b;
+}
+
 .footer {
   background: var(--blue-dark);
   color: var(--white);
@@ -373,6 +413,11 @@ body {
 
   .hero-content {
     padding-top: 2.3rem;
+  }
+
+  .form-actions .btn {
+    width: 100%;
+    text-align: center;
   }
 }
 

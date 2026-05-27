@@ -287,10 +287,10 @@
       <section class="section" id="formulario">
         <div class="container">
           <h2>Cuéntanos sobre tu negocio</h2>
-          <form id="pilot-form" class="form-card">
+          <form id="pilot-form" class="form-card" method="POST" action="https://formspree.io/f/xzdwyrey">
             <label>
               Nombre del negocio
-              <input type="text" name="nombre" required />
+              <input type="text" name="nombre_negocio" autocomplete="organization" required />
             </label>
             <label>
               Categoría
@@ -301,14 +301,58 @@
               <input type="text" name="distrito" required />
             </label>
             <label>
-              WhatsApp
-              <input type="tel" name="whatsapp" required />
+              Dirección aproximada
+              <input type="text" name="direccion" required />
             </label>
             <label>
-              Mensaje
-              <textarea name="mensaje" rows="4" required></textarea>
+              Persona de contacto
+              <input type="text" name="persona_contacto" autocomplete="name" required />
             </label>
-            <button type="submit" class="btn btn-primary">Enviar interés</button>
+            <label>
+              WhatsApp del negocio
+              <input type="tel" name="whatsapp" inputmode="tel" autocomplete="tel" required />
+            </label>
+            <label>
+              Horario de atención
+              <input type="text" name="horario" placeholder="Ejemplo: Lunes a sábado, 9:00 a.m. - 7:00 p.m." required />
+            </label>
+
+            <fieldset class="form-fieldset">
+              <legend>¿Aceptarías atender consultas por videollamada?</legend>
+              <label class="radio-option">
+                <input type="radio" name="acepta_videollamada" value="Sí" required />
+                <span>Sí</span>
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="acepta_videollamada" value="No" />
+                <span>No</span>
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="acepta_videollamada" value="Tal vez" />
+                <span>Tal vez</span>
+              </label>
+            </fieldset>
+
+            <label>
+              ¿Qué tipo de consultas suelen hacer tus clientes?
+              <textarea name="consultas_frecuentes" rows="4" required></textarea>
+            </label>
+            <label>
+              Comentario adicional
+              <textarea name="comentario" rows="3"></textarea>
+            </label>
+
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary">Enviar inscripción</button>
+              <a
+                class="btn btn-secondary"
+                href="https://wa.me/51923547480?text=Hola%2C%20quiero%20consultar%20sobre%20el%20piloto%20de%20Askly."
+                target="_blank"
+                rel="noopener noreferrer"
+                >Consultar por WhatsApp</a
+              >
+            </div>
+            <p id="pilot-form-status" class="form-status" aria-live="polite"></p>
           </form>
         </div>
       </section>

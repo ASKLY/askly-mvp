@@ -1,6 +1,7 @@
 // Manejo del formulario del piloto y del modal de videollamada (MVP sin backend).
 document.addEventListener("DOMContentLoaded", () => {
   const pilotForm = document.getElementById("pilot-form");
+  const pilotFormStatus = document.getElementById("pilot-form-status");
   const videoButtons = document.querySelectorAll(".video-call-btn");
   const videoModal = document.getElementById("video-modal");
   const closeVideoModalButton = document.getElementById("close-video-modal");
@@ -15,10 +16,37 @@ document.addEventListener("DOMContentLoaded", () => {
   const mapViewCardButton = document.getElementById("map-view-card-btn");
 
   if (pilotForm) {
-    pilotForm.addEventListener("submit", (event) => {
+    pilotForm.addEventListener("submit", async (event) => {
       event.preventDefault();
-      alert("Gracias. Hemos recibido tu interés en Askly.");
-      pilotForm.reset();
+      if (pilotFormStatus) {
+        pilotFormStatus.textContent = "Enviando inscripción...";
+        pilotFormStatus.classList.remove("success", "error");
+      }
+
+      try {
+        const response = await fetch(pilotForm.action, {
+          method: "POST",
+          body: new FormData(pilotForm),
+          headers: {
+            Accept: "application/json"
+          }
+        });
+
+        if (response.ok) {
+          pilotForm.reset();
+          if (pilotFormStatus) {
+            pilotFormStatus.textContent = "Gracias. Hemos recibido tu inscripción al piloto de Askly. Te contactaremos pronto.";
+            pilotFormStatus.classList.add("success");
+          }
+        } else {
+          throw new Error("Formspree respondió con error");
+        }
+      } catch (error) {
+        if (pilotFormStatus) {
+          pilotFormStatus.textContent = "No se pudo enviar la inscripción. Inténtalo nuevamente o contáctanos por WhatsApp.";
+          pilotFormStatus.classList.add("error");
+        }
+      }
     });
   }
 
