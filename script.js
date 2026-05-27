@@ -1,6 +1,6 @@
 // Manejo del formulario del piloto y del modal de videollamada (MVP sin backend).
 document.addEventListener("DOMContentLoaded", () => {
-  const pilotForm = document.getElementById("pilot-form");
+  const pilotForm = document.getElementById("formulario-piloto") || document.getElementById("pilot-form");
   const pilotFormStatus = document.getElementById("pilot-form-status");
   const videoButtons = document.querySelectorAll(".video-call-btn");
   const videoModal = document.getElementById("video-modal");
@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       try {
         const response = await fetch(pilotForm.action, {
-          method: "POST",
+          method: pilotForm.method || "POST",
           body: new FormData(pilotForm),
           headers: {
             Accept: "application/json"
