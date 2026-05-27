@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const videoModal = document.getElementById("video-modal");
   const closeVideoModalButton = document.getElementById("close-video-modal");
   const videoModalTitle = document.getElementById("video-modal-title");
+  const videoModalDescription = document.getElementById("video-modal-description");
 
   if (pilotForm) {
     pilotForm.addEventListener("submit", (event) => {
@@ -14,10 +15,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  if (!videoModal || !closeVideoModalButton || !videoModalTitle) return;
+  if (!videoModal || !closeVideoModalButton || !videoModalTitle || !videoModalDescription) return;
 
   const openVideoModal = (businessName) => {
-    videoModalTitle.textContent = `Videollamada con ${businessName}`;
+    videoModalTitle.textContent = `Conectar en vivo con ${businessName}`;
+    videoModalDescription.textContent =
+      "Askly te permite solicitar atención rápida por videollamada sin compartir tu número personal ni conocer el teléfono del negocio. En esta versión demo, la sala se abre mediante Google Meet.";
     videoModal.classList.add("modal-open");
     videoModal.setAttribute("aria-hidden", "false");
   };
