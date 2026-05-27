@@ -125,14 +125,21 @@
                 <span class="pin-label">English Horizon Hub</span>
                 <span class="pin-selected-tag" aria-hidden="true">Seleccionado</span>
               </button>
+              <button class="map-pin pin-colegio" type="button" style="top: 18%; left: 58%;" data-map-business="colegio-privado-la-molina">
+                <span class="pin-marker" aria-hidden="true">🎓</span>
+                <span class="pin-label">Colegio privado en La Molina</span>
+                <span class="pin-selected-tag" aria-hidden="true">Seleccionado</span>
+              </button>
             </div>
 
             <aside class="map-info-panel card" aria-live="polite">
               <p class="panel-kicker">Negocio seleccionado</p>
               <h3 id="map-business-name">Farmacia San Miguel</h3>
               <p><strong>Categoría:</strong> <span id="map-business-category">Farmacia</span></p>
-              <p><strong>Distancia:</strong> <span id="map-business-distance">1.2 km</span></p>
-              <p><strong>Estado:</strong> <span class="status">Disponible ahora</span></p>
+              <p><strong>Distrito:</strong> <span id="map-business-district">San Miguel</span></p>
+              <p><strong>Dirección:</strong> <span id="map-business-address">Av. La Marina 1234, San Miguel</span></p>
+              <p><strong>Horario:</strong> <span id="map-business-hours">Lunes a sábado, 8:00 a. m. a 9:00 p. m.</span></p>
+              <p><strong>Estado:</strong> <span class="status" id="map-business-status">Disponible ahora</span></p>
               <p id="map-business-description">Consulta si tienen el medicamento que necesitas antes de salir de casa.</p>
               <div class="card-actions">
                 <button class="btn btn-primary" id="map-connect-live-btn" type="button">Conectar en vivo ahora</button>
@@ -183,6 +190,21 @@
               <div class="card-actions">
                 <button class="btn btn-primary video-call-btn" type="button" data-business-name="Veterinaria Patitas">Conectar en vivo</button>
                 <a class="btn btn-secondary" href="https://wa.me/51923547480?text=Hola%2C%20quiero%20consultar%20sobre%20Veterinaria%20Patitas." target="_blank" rel="noopener noreferrer">Consultar por WhatsApp</a>
+              </div>
+            </article>
+
+
+            <article class="business-card" id="card-colegio-privado-la-molina">
+              <h3>Colegio privado en La Molina</h3>
+              <p><strong>Categoría:</strong> Educación / Colegio bilingüe</p>
+              <p><strong>Distrito:</strong> La Molina</p>
+              <p><strong>Dirección:</strong> La Molina, Lima</p>
+              <p><strong>Horario:</strong> Lunes a viernes, 7:30 a. m. a 4:00 p. m.</p>
+              <p><strong>Estado:</strong> <span class="status">Disponible en horario de atención</span></p>
+              <p>Institución educativa privada y bilingüe ubicada en La Molina. Ofrece formación integral y moderna para estudiantes, con atención a familias interesadas en información general, admisiones, horarios y servicios educativos.</p>
+              <div class="card-actions">
+                <button class="btn btn-primary video-call-btn" type="button" data-business-name="Colegio privado en La Molina">Conectar en vivo ahora</button>
+                <a class="btn btn-secondary" href="#card-colegio-privado-la-molina">Ver detalles</a>
               </div>
             </article>
 
