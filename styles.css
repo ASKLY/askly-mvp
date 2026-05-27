@@ -1,0 +1,195 @@
+:root {
+  --blue-dark: #0f1c3f;
+  --blue-main: #1f4bdb;
+  --white: #ffffff;
+  --gray-light: #f2f4f8;
+  --text-main: #1a1f36;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  color: var(--text-main);
+  background: var(--white);
+  line-height: 1.6;
+}
+
+.container {
+  width: min(1100px, 92%);
+  margin: 0 auto;
+}
+
+.hero {
+  background: linear-gradient(130deg, var(--blue-dark), var(--blue-main));
+  color: var(--white);
+  padding-bottom: 4rem;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 0;
+}
+
+.logo {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.nav-cta {
+  color: var(--white);
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 999px;
+  padding: 0.55rem 1rem;
+}
+
+.hero-content {
+  padding: 4rem 0 2rem;
+}
+
+.hero-content h1 {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  margin: 0.4rem 0 0.8rem;
+}
+
+.hero-content p {
+  max-width: 700px;
+}
+
+.tagline {
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  opacity: 0.9;
+}
+
+.hero-actions {
+  margin-top: 1.6rem;
+  display: flex;
+  gap: 0.9rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  border: none;
+  border-radius: 12px;
+  padding: 0.75rem 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: var(--blue-main);
+  color: var(--white);
+}
+
+.btn-secondary {
+  background: var(--white);
+  color: var(--blue-dark);
+}
+
+.section {
+  padding: 4rem 0;
+}
+
+.section-alt {
+  background: var(--gray-light);
+}
+
+.section h2 {
+  margin-top: 0;
+  margin-bottom: 1.1rem;
+}
+
+.section-text {
+  max-width: 760px;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.card,
+.business-card,
+.form-card {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 1rem;
+  box-shadow: 0 10px 24px rgba(18, 32, 75, 0.08);
+}
+
+.business-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.status {
+  color: #0e8a45;
+  font-weight: 600;
+}
+
+.card-actions {
+  margin-top: 1rem;
+  display: flex;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+}
+
+.steps,
+.benefits {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.steps li,
+.benefits li {
+  margin-bottom: 0.7rem;
+}
+
+.form-card {
+  display: grid;
+  gap: 0.9rem;
+  max-width: 700px;
+}
+
+.form-card label {
+  display: grid;
+  gap: 0.35rem;
+  font-weight: 600;
+}
+
+.form-card input,
+.form-card textarea {
+  font: inherit;
+  border: 1px solid #d3d8e5;
+  border-radius: 10px;
+  padding: 0.65rem;
+}
+
+.footer {
+  background: var(--blue-dark);
+  color: var(--white);
+  padding: 1.2rem 0;
+  text-align: center;
+}
+
+@media (max-width: 800px) {
+  .grid-3,
+  .business-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-content {
+    padding-top: 2.3rem;
+  }
+}
