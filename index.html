@@ -80,7 +80,7 @@
               <p>Medicinas generales, productos de cuidado personal y delivery local.</p>
               <div class="card-actions">
                 <a class="btn btn-primary" href="https://wa.me/51923547480?text=Hola%2C%20quiero%20consultar%20sobre%20Farmacia%20San%20Miguel." target="_blank" rel="noopener noreferrer">Consultar por WhatsApp</a>
-                <a class="btn btn-secondary" href="#" aria-label="Iniciar videollamada con Farmacia San Miguel">Iniciar videollamada</a>
+                <button class="btn btn-secondary video-call-btn" type="button" data-business-name="Farmacia San Miguel">Videollamada sin compartir número</button>
               </div>
             </article>
 
@@ -92,7 +92,7 @@
               <p>Herramientas, pintura y materiales para reparaciones del hogar.</p>
               <div class="card-actions">
                 <a class="btn btn-primary" href="https://wa.me/51923547480?text=Hola%2C%20quiero%20consultar%20sobre%20Ferreter%C3%ADa%20La%20Esquina." target="_blank" rel="noopener noreferrer">Consultar por WhatsApp</a>
-                <a class="btn btn-secondary" href="#" aria-label="Iniciar videollamada con Ferretería La Esquina">Iniciar videollamada</a>
+                <button class="btn btn-secondary video-call-btn" type="button" data-business-name="Ferretería La Esquina">Videollamada sin compartir número</button>
               </div>
             </article>
 
@@ -104,7 +104,7 @@
               <p>Consultas rápidas, vacunas y productos para mascotas.</p>
               <div class="card-actions">
                 <a class="btn btn-primary" href="https://wa.me/51923547480?text=Hola%2C%20quiero%20consultar%20sobre%20Veterinaria%20Patitas." target="_blank" rel="noopener noreferrer">Consultar por WhatsApp</a>
-                <a class="btn btn-secondary" href="#" aria-label="Iniciar videollamada con Veterinaria Patitas">Iniciar videollamada</a>
+                <button class="btn btn-secondary video-call-btn" type="button" data-business-name="Veterinaria Patitas">Videollamada sin compartir número</button>
               </div>
             </article>
 
@@ -116,7 +116,7 @@
               <p>Clases de inglés personalizadas y asesoría académica para jóvenes.</p>
               <div class="card-actions">
                 <a class="btn btn-primary" href="https://wa.me/51923547480?text=Hola%2C%20quiero%20consultar%20sobre%20English%20Horizon%20Hub." target="_blank" rel="noopener noreferrer">Consultar por WhatsApp</a>
-                <a class="btn btn-secondary" href="#" aria-label="Iniciar videollamada con English Horizon Hub">Iniciar videollamada</a>
+                <button class="btn btn-secondary video-call-btn" type="button" data-business-name="English Horizon Hub">Videollamada sin compartir número</button>
               </div>
             </article>
           </div>
@@ -193,6 +193,21 @@
         </div>
       </section>
     </main>
+
+    <div id="video-modal" class="modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="video-modal-title">
+      <div class="modal-content" role="document">
+        <h3 id="video-modal-title">Videollamada con negocio</h3>
+        <p>
+          Puedes iniciar una consulta rápida sin compartir tu número personal.
+          En una versión real, Askly conectaría al cliente y al negocio mediante
+          una sala privada de video.
+        </p>
+        <div class="modal-actions">
+          <a class="btn btn-primary" id="demo-room-link" href="https://meet.google.com/" target="_blank" rel="noopener noreferrer">Entrar a sala demo</a>
+          <button class="btn btn-secondary" id="close-video-modal" type="button">Cancelar</button>
+        </div>
+      </div>
+    </div>
 
     <footer class="footer">
       <div class="container">
