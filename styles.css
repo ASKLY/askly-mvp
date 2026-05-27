@@ -163,6 +163,35 @@ body {
   margin-bottom: 0.7rem;
 }
 
+.privacy-note {
+  margin-top: 1rem;
+  font-weight: 600;
+}
+
+.business-benefits-grid {
+  margin-top: 1.2rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.pilot-visual {
+  margin: 1.3rem 0;
+  padding: 1.2rem;
+  border-left: 5px solid var(--blue-main);
+  border-radius: 12px;
+  background: #e9efff;
+  max-width: 780px;
+}
+
+.pilot-visual h3 {
+  margin: 0 0 0.45rem;
+}
+
+.pilot-visual p {
+  margin: 0;
+}
+
 .form-card {
   display: grid;
   gap: 0.9rem;
@@ -192,7 +221,8 @@ body {
 
 @media (max-width: 800px) {
   .grid-3,
-  .business-grid {
+  .business-grid,
+  .business-benefits-grid {
     grid-template-columns: 1fr;
   }
 
