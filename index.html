@@ -30,7 +30,7 @@
           eliges videollamada.
         </p>
         <div class="hero-actions">
-          <a href="#demo" class="btn btn-primary">Ver mapa demo</a>
+          <a href="#mapa-demo" class="btn btn-primary">Ver mapa demo</a>
           <a href="#piloto" class="btn btn-secondary">Unir mi negocio al piloto</a>
         </div>
       </div>
@@ -73,12 +73,53 @@
         </div>
       </section>
 
+      <section class="section section-alt" id="mapa-demo">
+        <div class="container">
+          <h2>Toca un negocio en el mapa</h2>
+          <p class="section-text">
+            Explora negocios cercanos, revisa si están disponibles y solicita una conexión en vivo antes de moverte.
+          </p>
+
+          <div class="map-demo-layout">
+            <div class="map-demo" role="img" aria-label="Mapa demo de negocios cercanos">
+              <div class="map-road road-horizontal"></div>
+              <div class="map-road road-vertical"></div>
+              <div class="map-road road-diagonal"></div>
+
+              <div class="user-location" aria-label="Tu ubicación">
+                <span class="user-dot"></span>
+                <span class="user-label">Tu ubicación</span>
+              </div>
+
+              <button class="map-pin" type="button" style="top: 24%; left: 28%;" data-map-business="farmacia-san-miguel">Farmacia San Miguel</button>
+              <button class="map-pin" type="button" style="top: 55%; left: 66%;" data-map-business="ferreteria-la-esquina">Ferretería La Esquina</button>
+              <button class="map-pin" type="button" style="top: 68%; left: 34%;" data-map-business="veterinaria-patitas">Veterinaria Patitas</button>
+              <button class="map-pin" type="button" style="top: 36%; left: 74%;" data-map-business="english-horizon-hub">English Horizon Hub</button>
+            </div>
+
+            <aside class="map-info-panel card" aria-live="polite">
+              <h3 id="map-business-name">Farmacia San Miguel</h3>
+              <p><strong>Categoría:</strong> <span id="map-business-category">Farmacia</span></p>
+              <p><strong>Distancia:</strong> <span id="map-business-distance">1.2 km</span></p>
+              <p><strong>Estado:</strong> <span class="status">Disponible ahora</span></p>
+              <p id="map-business-description">Consulta si tienen el medicamento que necesitas antes de salir de casa.</p>
+              <div class="card-actions">
+                <button class="btn btn-primary" id="map-connect-live-btn" type="button">Conectar en vivo</button>
+                <a class="btn btn-secondary" id="map-view-card-btn" href="#card-farmacia-san-miguel">Ver tarjeta</a>
+              </div>
+            </aside>
+          </div>
+
+          <p class="map-note">Mapa demo: integración con mapa real en una futura versión.</p>
+        </div>
+      </section>
+
       <section class="section" id="demo">
         <div class="container">
           <h2>Demo de negocios cercanos</h2>
           <p class="section-text">Explora cómo un usuario puede consultar negocios disponibles antes de ir.</p>
           <div class="business-grid">
-            <article class="business-card">
+            <article class="business-card" id="card-farmacia-san-miguel">
               <h3>Farmacia San Miguel</h3>
               <p><strong>Categoría:</strong> Farmacia</p>
               <p><strong>Distancia:</strong> 1.2 km</p>
@@ -90,7 +131,7 @@
               </div>
             </article>
 
-            <article class="business-card">
+            <article class="business-card" id="card-ferreteria-la-esquina">
               <h3>Ferretería La Esquina</h3>
               <p><strong>Categoría:</strong> Ferretería</p>
               <p><strong>Distancia:</strong> 2.8 km</p>
@@ -102,7 +143,7 @@
               </div>
             </article>
 
-            <article class="business-card">
+            <article class="business-card" id="card-veterinaria-patitas">
               <h3>Veterinaria Patitas</h3>
               <p><strong>Categoría:</strong> Veterinaria</p>
               <p><strong>Distancia:</strong> 3.4 km</p>
@@ -114,7 +155,7 @@
               </div>
             </article>
 
-            <article class="business-card">
+            <article class="business-card" id="card-english-horizon-hub">
               <h3>English Horizon Hub</h3>
               <p><strong>Categoría:</strong> Academia</p>
               <p><strong>Distancia:</strong> 4.1 km</p>
