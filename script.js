@@ -6,6 +6,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const closeVideoModalButton = document.getElementById("close-video-modal");
   const videoModalTitle = document.getElementById("video-modal-title");
   const videoModalDescription = document.getElementById("video-modal-description");
+  const mapPins = document.querySelectorAll(".map-pin");
+  const mapBusinessName = document.getElementById("map-business-name");
+  const mapBusinessCategory = document.getElementById("map-business-category");
+  const mapBusinessDistance = document.getElementById("map-business-distance");
+  const mapBusinessDescription = document.getElementById("map-business-description");
+  const mapConnectLiveButton = document.getElementById("map-connect-live-btn");
+  const mapViewCardButton = document.getElementById("map-view-card-btn");
 
   if (pilotForm) {
     pilotForm.addEventListener("submit", (event) => {
@@ -36,6 +43,74 @@ document.addEventListener("DOMContentLoaded", () => {
       openVideoModal(businessName);
     });
   });
+
+  const mapBusinesses = {
+    "farmacia-san-miguel": {
+      name: "Farmacia San Miguel",
+      category: "Farmacia",
+      distance: "1.2 km",
+      description: "Consulta si tienen el medicamento que necesitas antes de salir de casa.",
+      cardHref: "#card-farmacia-san-miguel"
+    },
+    "ferreteria-la-esquina": {
+      name: "Ferretería La Esquina",
+      category: "Ferretería",
+      distance: "2.8 km",
+      description: "Pregunta por herramientas, pintura o repuestos antes de ir al local.",
+      cardHref: "#card-ferreteria-la-esquina"
+    },
+    "veterinaria-patitas": {
+      name: "Veterinaria Patitas",
+      category: "Veterinaria",
+      distance: "3.4 km",
+      description: "Confirma atención disponible para tu mascota antes de desplazarte.",
+      cardHref: "#card-veterinaria-patitas"
+    },
+    "english-horizon-hub": {
+      name: "English Horizon Hub",
+      category: "Academia",
+      distance: "4.1 km",
+      description: "Consulta horarios, modalidad y disponibilidad de clases antes de inscribirte.",
+      cardHref: "#card-english-horizon-hub"
+    }
+  };
+
+  const updateMapPanel = (businessKey) => {
+    if (!mapBusinessName || !mapBusinessCategory || !mapBusinessDistance || !mapBusinessDescription || !mapConnectLiveButton || !mapViewCardButton) return;
+
+    const business = mapBusinesses[businessKey];
+    if (!business) return;
+
+    mapBusinessName.textContent = business.name;
+    mapBusinessCategory.textContent = business.category;
+    mapBusinessDistance.textContent = business.distance;
+    mapBusinessDescription.textContent = business.description;
+    mapConnectLiveButton.dataset.businessName = business.name;
+    mapViewCardButton.setAttribute("href", business.cardHref);
+  };
+
+  if (mapPins.length > 0) {
+    mapPins.forEach((pin) => {
+      pin.addEventListener("click", () => {
+        const businessKey = pin.dataset.mapBusiness;
+        mapPins.forEach((item) => item.classList.remove("active"));
+        pin.classList.add("active");
+        if (businessKey) {
+          updateMapPanel(businessKey);
+        }
+      });
+    });
+
+    mapPins[0].classList.add("active");
+    updateMapPanel(mapPins[0].dataset.mapBusiness);
+  }
+
+  if (mapConnectLiveButton) {
+    mapConnectLiveButton.addEventListener("click", () => {
+      const businessName = mapConnectLiveButton.dataset.businessName || "el negocio";
+      openVideoModal(businessName);
+    });
+  }
 
   closeVideoModalButton.addEventListener("click", closeVideoModal);
 
