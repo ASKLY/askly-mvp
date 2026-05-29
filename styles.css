@@ -26,40 +26,36 @@ body {
 .hero {
   position: relative;
   isolation: isolate;
+  min-height: 90vh;
   color: var(--white);
   padding-bottom: 4.5rem;
   overflow: hidden;
-  background:
-    radial-gradient(circle at 10% 20%, rgba(91, 136, 255, 0.2), transparent 35%),
-    radial-gradient(circle at 85% 15%, rgba(165, 98, 255, 0.2), transparent 40%),
-    linear-gradient(135deg, #05080f 0%, #0a1533 40%, #130a2d 72%, #060910 100%);
+  background-color: #050a19;
+  background-image: url("assets/askly-hero-bg.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .hero::before,
 .hero::after {
   content: "";
   position: absolute;
-  inset: -20%;
+  inset: 0;
   pointer-events: none;
 }
 
 .hero::before {
-  background:
-    radial-gradient(circle, rgba(120, 160, 255, 0.24) 0 1px, transparent 1px 100%),
-    linear-gradient(110deg, transparent 25%, rgba(115, 155, 255, 0.16) 26%, transparent 27%),
-    linear-gradient(170deg, transparent 68%, rgba(165, 98, 255, 0.12) 69%, transparent 70%);
-  background-size: 28px 28px, 250px 250px, 320px 320px;
-  opacity: 0.4;
-  animation: driftGrid 34s linear infinite;
+  z-index: 0;
+  background: rgba(5, 10, 25, 0.62);
 }
 
 .hero::after {
+  z-index: 1;
   background:
-    radial-gradient(circle at 30% 35%, rgba(80, 140, 255, 0.3), transparent 42%),
-    radial-gradient(circle at 70% 60%, rgba(177, 118, 255, 0.22), transparent 45%);
-  filter: blur(24px);
-  opacity: 0.9;
-  animation: pulseAurora 12s ease-in-out infinite alternate;
+    radial-gradient(circle at 18% 42%, rgba(22, 90, 255, 0.18), transparent 34%),
+    linear-gradient(90deg, rgba(2, 6, 18, 0.76) 0%, rgba(5, 10, 25, 0.45) 42%, rgba(5, 10, 25, 0.32) 100%),
+    linear-gradient(180deg, rgba(2, 5, 15, 0.28) 0%, rgba(2, 5, 15, 0.46) 100%);
 }
 .hero-content::before,
 .hero-content::after {
@@ -88,6 +84,8 @@ body {
 }
 
 .navbar {
+  position: relative;
+  z-index: 2;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -102,15 +100,15 @@ body {
 
 .hero-brand {
   margin: 0.35rem 0 0.2rem;
-  font-size: clamp(2.3rem, 6vw, 4.2rem);
+  font-size: clamp(2.6rem, 7vw, 5rem);
   line-height: 1.03;
-  font-weight: 800;
+  font-weight: 900;
   letter-spacing: 0.02em;
-  background: linear-gradient(120deg, #fff8d8 6%, #f8d78f 28%, #b9c4dc 48%, #f7efdc 72%, #fefeff 94%);
+  background: linear-gradient(115deg, #fffdf1 5%, #d6dde9 20%, #f7d27c 42%, #fff2bd 58%, #aebbd3 75%, #ffffff 94%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  text-shadow: 0 3px 18px rgba(241, 219, 166, 0.26), 0 0 26px rgba(162, 188, 255, 0.2);
+  text-shadow: 0 4px 22px rgba(247, 210, 124, 0.28), 0 0 34px rgba(205, 220, 255, 0.18);
 }
 
 .nav-cta {
@@ -124,7 +122,7 @@ body {
 .hero-content {
   position: relative;
   z-index: 2;
-  padding: 4rem 0 2rem;
+  padding: clamp(4.5rem, 9vh, 7rem) 0 2rem;
   display: grid;
   grid-template-columns: 1.2fr minmax(220px, 330px);
   gap: 2.4rem;
@@ -140,10 +138,17 @@ body {
   max-width: 700px;
 }
 
+.hero-text-block,
+.hero-mockup {
+  position: relative;
+  z-index: 2;
+}
+
 .tagline {
   text-transform: uppercase;
   letter-spacing: 0.06em;
   opacity: 0.9;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.45);
 }
 
 
@@ -511,6 +516,17 @@ body {
     min-height: 300px;
   }
 
+  .hero {
+    min-height: 90vh;
+    background-position: center;
+  }
+
+  .hero::after {
+    background:
+      linear-gradient(180deg, rgba(5, 10, 25, 0.6) 0%, rgba(5, 10, 25, 0.34) 44%, rgba(5, 10, 25, 0.62) 100%),
+      radial-gradient(circle at 50% 34%, rgba(22, 90, 255, 0.14), transparent 42%);
+  }
+
   .hero-content {
     padding-top: 2.3rem;
     grid-template-columns: 1fr;
@@ -589,11 +605,12 @@ body {
   transform: translateY(16px);
 }
 
-.hero-brand { animation: heroReveal 0.8s ease forwards; }
-.hero-content h1 { animation: heroReveal 0.7s ease 0.2s forwards; }
-.hero-content p:not(.tagline):not(.hero-brand):not(.hero-highlight) { animation: heroReveal 0.7s ease 0.4s forwards; }
-.hero-highlight { animation: heroReveal 0.7s ease 0.55s forwards; }
-.hero-actions { animation: heroReveal 0.7s ease 0.75s forwards; }
+.tagline { animation: heroReveal 0.65s ease forwards; }
+.hero-brand { animation: heroReveal 0.8s ease 0.1s forwards; }
+.hero-content h1 { animation: heroReveal 0.7s ease 0.25s forwards; }
+.hero-content p:not(.tagline):not(.hero-brand):not(.hero-highlight) { animation: heroReveal 0.7s ease 0.45s forwards; }
+.hero-highlight { animation: heroReveal 0.7s ease 0.6s forwards; }
+.hero-actions { animation: heroReveal 0.7s ease 0.8s forwards; }
 
 .hero-mockup {
   border: 1px solid rgba(189, 211, 255, 0.45);
